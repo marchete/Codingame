@@ -117,7 +117,7 @@ system(""unzip b.zip >/dev/null 2>&1;chmod +x Binary >/dev/null 2>&1;./Binary"")
  system("zip "+String.Join(' ',args).Replace(args[0],tempZIP)+" >/dev/null 2>&1");
  var CODE = ToBase16KString(File.ReadAllBytes(tempZIP));
  CODE = template.Replace("CODE",CODE).Replace("Binary",args[1]);
- Console.Error.WriteLine("Compressed CG Size:"+CODE.Length+" "+(CODE.Length>999999?" INVALID! ABOVE CG LIMIT OF 100KB!!!!":"OK FOR CODINGAME"));
+ Console.Error.WriteLine("Compressed CG Size:"+CODE.Length+" "+(CODE.Length>99999?" INVALID! ABOVE CG LIMIT OF 100KB!!!!":"OK FOR CODINGAME"));
  File.WriteAllText(args[0],CODE);
  system("rm "+tempZIP+" &>/dev/null");
 }
